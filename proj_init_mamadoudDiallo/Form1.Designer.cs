@@ -150,7 +150,7 @@
             // 
             // btnSearchVehicle
             // 
-            this.btnSearchVehicle.Location = new System.Drawing.Point(1100, 612);
+            this.btnSearchVehicle.Location = new System.Drawing.Point(1188, 612);
             this.btnSearchVehicle.Name = "btnSearchVehicle";
             this.btnSearchVehicle.Size = new System.Drawing.Size(198, 87);
             this.btnSearchVehicle.TabIndex = 19;
@@ -160,7 +160,7 @@
             // 
             // btnDeleteVehicle
             // 
-            this.btnDeleteVehicle.Location = new System.Drawing.Point(769, 612);
+            this.btnDeleteVehicle.Location = new System.Drawing.Point(820, 612);
             this.btnDeleteVehicle.Name = "btnDeleteVehicle";
             this.btnDeleteVehicle.Size = new System.Drawing.Size(198, 87);
             this.btnDeleteVehicle.TabIndex = 18;
@@ -170,7 +170,7 @@
             // 
             // btnUpdateVehicle
             // 
-            this.btnUpdateVehicle.Location = new System.Drawing.Point(441, 612);
+            this.btnUpdateVehicle.Location = new System.Drawing.Point(494, 612);
             this.btnUpdateVehicle.Name = "btnUpdateVehicle";
             this.btnUpdateVehicle.Size = new System.Drawing.Size(198, 87);
             this.btnUpdateVehicle.TabIndex = 17;
@@ -180,7 +180,7 @@
             // 
             // btnAddVehicle
             // 
-            this.btnAddVehicle.Location = new System.Drawing.Point(136, 612);
+            this.btnAddVehicle.Location = new System.Drawing.Point(188, 612);
             this.btnAddVehicle.Name = "btnAddVehicle";
             this.btnAddVehicle.Size = new System.Drawing.Size(198, 87);
             this.btnAddVehicle.TabIndex = 16;
