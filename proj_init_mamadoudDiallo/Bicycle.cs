@@ -2,8 +2,8 @@
 {
     public bool IsElectric { get; set; }
 
-    public Bicycle(string licensePlate, int useCount, bool isCompetition, bool isElectric)
-        : base(licensePlate, useCount, isCompetition)
+    public Bicycle(int useCount, bool isCompetition, bool isElectric)
+        : base("ESPECIAL", useCount, isCompetition)
     {
         IsElectric = isElectric;
     }

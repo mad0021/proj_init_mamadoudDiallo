@@ -48,43 +48,44 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1317, 9);
+            this.button1.Location = new System.Drawing.Point(1328, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 32);
             this.button1.TabIndex = 30;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // txtDoors
             // 
             this.txtDoors.Location = new System.Drawing.Point(21, 232);
             this.txtDoors.Name = "txtDoors";
-            this.txtDoors.Size = new System.Drawing.Size(93, 26);
+            this.txtDoors.Size = new System.Drawing.Size(141, 26);
             this.txtDoors.TabIndex = 29;
             // 
             // dgvVehicles
             // 
             this.dgvVehicles.AllowUserToOrderColumns = true;
             this.dgvVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehicles.Location = new System.Drawing.Point(136, 78);
+            this.dgvVehicles.Location = new System.Drawing.Point(188, 78);
             this.dgvVehicles.Name = "dgvVehicles";
             this.dgvVehicles.RowHeadersWidth = 62;
             this.dgvVehicles.RowTemplate.Height = 28;
-            this.dgvVehicles.Size = new System.Drawing.Size(1162, 514);
+            this.dgvVehicles.Size = new System.Drawing.Size(1198, 514);
             this.dgvVehicles.TabIndex = 28;
             // 
             // txtUsageCount
             // 
             this.txtUsageCount.Location = new System.Drawing.Point(21, 172);
             this.txtUsageCount.Name = "txtUsageCount";
-            this.txtUsageCount.Size = new System.Drawing.Size(103, 26);
+            this.txtUsageCount.Size = new System.Drawing.Size(141, 26);
             this.txtUsageCount.TabIndex = 27;
             // 
             // txtLicensePlate
             // 
             this.txtLicensePlate.Location = new System.Drawing.Point(21, 115);
             this.txtLicensePlate.Name = "txtLicensePlate";
-            this.txtLicensePlate.Size = new System.Drawing.Size(103, 26);
+            this.txtLicensePlate.Size = new System.Drawing.Size(141, 26);
             this.txtLicensePlate.TabIndex = 26;
             // 
             // chkElectric
@@ -155,6 +156,7 @@
             this.btnSearchVehicle.TabIndex = 19;
             this.btnSearchVehicle.Text = "Search Vehicle";
             this.btnSearchVehicle.UseVisualStyleBackColor = true;
+            this.btnSearchVehicle.Click += new System.EventHandler(this.btnSearchVehicle_Click);
             // 
             // btnDeleteVehicle
             // 
@@ -164,6 +166,7 @@
             this.btnDeleteVehicle.TabIndex = 18;
             this.btnDeleteVehicle.Text = "Delete Vehicle";
             this.btnDeleteVehicle.UseVisualStyleBackColor = true;
+            this.btnDeleteVehicle.Click += new System.EventHandler(this.btnDeleteVehicle_Click);
             // 
             // btnUpdateVehicle
             // 
@@ -173,6 +176,7 @@
             this.btnUpdateVehicle.TabIndex = 17;
             this.btnUpdateVehicle.Text = "Update Vehicle";
             this.btnUpdateVehicle.UseVisualStyleBackColor = true;
+            this.btnUpdateVehicle.Click += new System.EventHandler(this.btnUpdateVehicle_Click);
             // 
             // btnAddVehicle
             // 
@@ -182,6 +186,7 @@
             this.btnAddVehicle.TabIndex = 16;
             this.btnAddVehicle.Text = "Add Vehicle";
             this.btnAddVehicle.UseVisualStyleBackColor = true;
+            this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
             // 
             // Form1
             // 

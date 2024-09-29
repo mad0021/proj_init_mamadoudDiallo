@@ -9,7 +9,6 @@ namespace proj_init_mamadoudDiallo
     {
         private string connectionString = "server=localhost;database=parkingdb;user=root;password=;";
 
-        // Función para agregar un vehículo a la base de datos
         public void AddVehicle(Vehicle vehicle)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -29,20 +28,20 @@ namespace proj_init_mamadoudDiallo
                     if (vehicle is Car car)
                     {
                         cmd.Parameters.AddWithValue("@doors", car.Doors);
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // No aplica
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // No aplica
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
                     }
                     else if (vehicle is Motorcycle motorcycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // No aplica
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // No aplica
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); 
                         cmd.Parameters.AddWithValue("@hasHelmetStorage", motorcycle.HasHelmetStorage ? 1 : 0);
                     }
                     else if (vehicle is Bicycle bicycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // No aplica
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
                         cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0);
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // No aplica
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
                     }
 
                     cmd.ExecuteNonQuery();
@@ -54,7 +53,6 @@ namespace proj_init_mamadoudDiallo
             }
         }
 
-        // Función para actualizar un vehículo
         public void UpdateVehicle(Vehicle vehicle)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -75,20 +73,20 @@ namespace proj_init_mamadoudDiallo
                     if (vehicle is Car car)
                     {
                         cmd.Parameters.AddWithValue("@doors", car.Doors);
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // No aplica
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // No aplica
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
                     }
                     else if (vehicle is Motorcycle motorcycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // No aplica
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // No aplica
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
                         cmd.Parameters.AddWithValue("@hasHelmetStorage", motorcycle.HasHelmetStorage ? 1 : 0);
                     }
                     else if (vehicle is Bicycle bicycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // No aplica
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
                         cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0);
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // No aplica
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
                     }
 
                     cmd.ExecuteNonQuery();
@@ -100,7 +98,6 @@ namespace proj_init_mamadoudDiallo
             }
         }
 
-        // Función para eliminar un vehículo
         public void DeleteVehicle(string licensePlate)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -120,7 +117,6 @@ namespace proj_init_mamadoudDiallo
             }
         }
 
-        // Función para obtener un vehículo por matrícula
         public Vehicle GetVehicleByLicensePlate(string licensePlate)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -148,7 +144,7 @@ namespace proj_init_mamadoudDiallo
                             case "Motorcycle":
                                 return new Motorcycle(licensePlate, useCount, isCompetition, hasHelmetStorage);
                             case "Bicycle":
-                                return new Bicycle(licensePlate, useCount, isCompetition, isElectric);
+                                return new Bicycle(useCount, isCompetition, isElectric);
                         }
                     }
                 }
@@ -186,7 +182,7 @@ namespace proj_init_mamadoudDiallo
                                 vehicles.Add(new Motorcycle(licensePlate, useCount, isCompetition, hasHelmetStorage));
                                 break;
                             case "Bicycle":
-                                vehicles.Add(new Bicycle(licensePlate, useCount, isCompetition, isElectric));
+                                vehicles.Add(new Bicycle(useCount, isCompetition, isElectric));
                                 break;
                         }
                     }

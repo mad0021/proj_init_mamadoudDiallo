@@ -62,7 +62,6 @@ namespace proj_init_mamadoudDiallo
                 {
                     DataGridViewRow selectedRow = dgvVehicles.Rows[e.RowIndex];
 
-                    txtLicensePlate.Text = selectedRow.Cells["LicensePlate"].Value.ToString();
                     txtUsageCount.Text = selectedRow.Cells["UseCount"].Value.ToString();
                     chkCompetition.Checked = Convert.ToBoolean(selectedRow.Cells["IsCompetition"].Value);
 
@@ -72,16 +71,19 @@ namespace proj_init_mamadoudDiallo
                     {
                         rbCar.Checked = true;
                         txtDoors.Text = selectedRow.Cells["Doors"].Value.ToString();
+                        txtLicensePlate.Text = selectedRow.Cells["LicensePlate"].Value.ToString();
                     }
                     else if (vehicleType == "Motorcycle")
                     {
                         rbMotorcycle.Checked = true;
                         chkHelmetCase.Checked = Convert.ToBoolean(selectedRow.Cells["HasHelmetStorage"].Value);
+                        txtLicensePlate.Text = selectedRow.Cells["LicensePlate"].Value.ToString();
                     }
                     else if (vehicleType == "Bicycle")
                     {
                         rbBicycle.Checked = true;
                         chkElectric.Checked = Convert.ToBoolean(selectedRow.Cells["IsElectric"].Value);
+                        txtLicensePlate.Text = "ESPECIAL";
                     }
                 }
             }
@@ -95,12 +97,12 @@ namespace proj_init_mamadoudDiallo
         {
             try
             {
-                string licensePlate = txtLicensePlate.Text;
                 int useCount = int.Parse(txtUsageCount.Text);
                 bool isCompetition = chkCompetition.Checked;
 
                 if (rbCar.Checked)
                 {
+                    string licensePlate = txtLicensePlate.Text;
                     int doorCount = int.Parse(txtDoors.Text);
                     Car car = new Car(licensePlate, useCount, isCompetition, doorCount);
                     if (isUpdate)
@@ -116,6 +118,7 @@ namespace proj_init_mamadoudDiallo
                 }
                 else if (rbMotorcycle.Checked)
                 {
+                    string licensePlate = txtLicensePlate.Text;
                     bool hasHelmetCase = chkHelmetCase.Checked;
                     Motorcycle motorcycle = new Motorcycle(licensePlate, useCount, isCompetition, hasHelmetCase);
                     if (isUpdate)
@@ -132,7 +135,7 @@ namespace proj_init_mamadoudDiallo
                 else if (rbBicycle.Checked)
                 {
                     bool isElectric = chkElectric.Checked;
-                    Bicycle bicycle = new Bicycle(licensePlate, useCount, isCompetition, isElectric);
+                    Bicycle bicycle = new Bicycle(useCount, isCompetition, isElectric);
                     if (isUpdate)
                     {
                         vehicleController.UpdateVehicle(bicycle);
@@ -141,12 +144,11 @@ namespace proj_init_mamadoudDiallo
                     else
                     {
                         vehicleController.AddVehicle(bicycle);
-                        MessageBox.Show("Bicycle added successfully!");
+                        MessageBox.Show("Bicycle added successfully with license plate 'ESPECIAL'!");
                     }
                 }
 
                 LoadVehicles();
-
             }
             catch (Exception ex)
             {
@@ -154,17 +156,87 @@ namespace proj_init_mamadoudDiallo
             }
         }
 
-        private void btnAddVehicle_Click_1(object sender, EventArgs e)
+        private void btnAddVehicle_Click(object sender, EventArgs e)
         {
             SaveVehicle();
         }
 
-        private void btnUpdateVehicle_Click_1(object sender, EventArgs e)
+        private void btnUpdateVehicle_Click(object sender, EventArgs e)
         {
-            SaveVehicle(true);
+            SaveVehicle();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDeleteVehicle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string licensePlate = txtLicensePlate.Text;
+
+                if (string.IsNullOrWhiteSpace(licensePlate))
+                {
+                    MessageBox.Show("Please enter a valid license plate.");
+                    return;
+                }
+
+                vehicleController.DeleteVehicle(licensePlate);
+
+                MessageBox.Show("Vehicle deleted successfully!");
+
+                LoadVehicles();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error deleting vehicle: {ex.Message}");
+            }
+        }
+
+        private void btnSearchVehicle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string licensePlate = txtLicensePlate.Text;
+
+                if (string.IsNullOrWhiteSpace(licensePlate))
+                {
+                    MessageBox.Show("Please enter a valid license plate.");
+                    return;
+                }
+
+                Vehicle vehicle = vehicleController.GetVehicleByLicensePlate(licensePlate);
+
+                if (vehicle != null)
+                {
+                    txtUsageCount.Text = vehicle.UseCount.ToString();
+                    chkCompetition.Checked = vehicle.IsCompetition;
+
+                    if (vehicle is Car car)
+                    {
+                        rbCar.Checked = true;
+                        txtDoors.Text = car.Doors.ToString();
+                    }
+                    else if (vehicle is Motorcycle motorcycle)
+                    {
+                        rbMotorcycle.Checked = true;
+                        chkHelmetCase.Checked = motorcycle.HasHelmetStorage;
+                    }
+                    else if (vehicle is Bicycle bicycle)
+                    {
+                        rbBicycle.Checked = true;
+                        chkElectric.Checked = bicycle.IsElectric;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vehicle not found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error searching for vehicle: {ex.Message}");
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
