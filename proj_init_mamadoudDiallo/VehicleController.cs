@@ -28,20 +28,20 @@ namespace proj_init_mamadoudDiallo
                     if (vehicle is Car car)
                     {
                         cmd.Parameters.AddWithValue("@doors", car.Doors);
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // Los coches no tienen este valor
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // Los coches no tienen porta cascos
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
                     }
                     else if (vehicle is Motorcycle motorcycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // Las motos no tienen puertas
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // Las motos no tienen este valor
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
                         cmd.Parameters.AddWithValue("@hasHelmetStorage", motorcycle.HasHelmetStorage ? 1 : 0);
                     }
                     else if (vehicle is Bicycle bicycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // Las bicicletas no tienen puertas
-                        cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0); // Bicicletas pueden ser eléctricas
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // Las bicicletas no tienen porta cascos
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
                     }
 
                     cmd.ExecuteNonQuery();
@@ -74,20 +74,20 @@ namespace proj_init_mamadoudDiallo
                     if (vehicle is Car car)
                     {
                         cmd.Parameters.AddWithValue("@doors", car.Doors);
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // Los coches no tienen este valor
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // Los coches no tienen porta cascos
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
                     }
                     else if (vehicle is Motorcycle motorcycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // Las motos no tienen puertas
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // Las motos no tienen este valor
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
                         cmd.Parameters.AddWithValue("@hasHelmetStorage", motorcycle.HasHelmetStorage ? 1 : 0);
                     }
                     else if (vehicle is Bicycle bicycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // Las bicicletas no tienen puertas
-                        cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0); // Bicicletas pueden ser eléctricas
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // Las bicicletas no tienen porta cascos
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0);
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
                     }
 
                     cmd.ExecuteNonQuery();

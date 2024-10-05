@@ -104,20 +104,15 @@ namespace proj_init_mamadoudDiallo
                 {
                     DataGridViewRow selectedRow = dgvVehicles.Rows[e.RowIndex];
 
-                    // Get the license plate of the selected vehicle
                     string licensePlate = selectedRow.Cells["LicensePlate"].Value.ToString();
 
-                    // Call the database to check if the vehicle already exists
                     int useCount = GetUseCountFromDatabase(licensePlate);
 
-                    // Increment the usage counter
                     useCount++;
                     MessageBox.Show($"The usage counter has been incremented to {useCount} for the vehicle with license plate: {licensePlate}.");
 
-                    // Update other fields based on the vehicle type
                     UpdateVehicleFields(selectedRow, licensePlate);
 
-                    // Save the updated usage count
                     SaveUsageCount(licensePlate, useCount);
                 }
             }
@@ -149,13 +144,13 @@ namespace proj_init_mamadoudDiallo
             {
                 rbBicycle.Checked = true;
                 chkElectric.Checked = Convert.ToBoolean(selectedRow.Cells["IsElectric"].Value);
-                txtLicensePlate.Text = "SPECIAL"; // Set to "SPECIAL" for special vehicles.
+                txtLicensePlate.Text = "SPECIAL";
             }
         }
 
         private int GetUseCountFromDatabase(string licensePlate)
         {
-            int useCount = 0; // Default value if the vehicle is not found
+            int useCount = 0;
 
             try
             {
@@ -201,7 +196,6 @@ namespace proj_init_mamadoudDiallo
                 {
                     connection.Open();
 
-                    // Verificar si el vehículo ya existe
                     string queryCheck = "SELECT COUNT(*) FROM vehicles WHERE LicensePlate = @LicensePlate";
                     using (var commandCheck = new MySqlCommand(queryCheck, connection))
                     {
@@ -210,7 +204,6 @@ namespace proj_init_mamadoudDiallo
 
                         if (vehicleExists > 0)
                         {
-                            // Actualizar el UseCount
                             string queryUpdate = "UPDATE vehicles SET UseCount = @NewUseCount WHERE LicensePlate = @LicensePlate";
                             using (var commandUpdate = new MySqlCommand(queryUpdate, connection))
                             {
@@ -221,7 +214,6 @@ namespace proj_init_mamadoudDiallo
                         }
                         else
                         {
-                            // Insertar un nuevo registro solo si no existe
                             string queryInsert = "INSERT INTO vehicles (LicensePlate, UseCount) VALUES (@LicensePlate, @NewUseCount)";
                             using (var commandInsert = new MySqlCommand(queryInsert, connection))
                             {
@@ -249,9 +241,8 @@ namespace proj_init_mamadoudDiallo
             {
                 bool isCompetition = chkCompetition.Checked;
                 string licensePlate = txtLicensePlate.Text;
-                int currentUseCount = GetUseCountFromDatabase(licensePlate); // Get the current use count
+                int currentUseCount = GetUseCountFromDatabase(licensePlate);
 
-                // If we're updating, do not increment the usage count
                 if (isUpdate)
                 {
                     if (rbCar.Checked)
@@ -276,50 +267,48 @@ namespace proj_init_mamadoudDiallo
                         MessageBox.Show("Bicycle updated successfully!");
                     }
 
-                    LoadVehicles(); // Reload updated data
-                    return; // Exit the method since we've only updated
+                    LoadVehicles();
+                    return;
                 }
 
-                // If it is not an update, proceed to add a new vehicle
-                if (currentUseCount == 0) // Only add if the vehicle does not exist
+                if (currentUseCount > 0)
+                {
+                    currentUseCount++;
+                    SaveUsageCount(licensePlate, currentUseCount);
+                    MessageBox.Show($"The vehicle with license plate {licensePlate} already exists. Use count has been incremented to {currentUseCount}.");
+                }
+                else
                 {
                     if (rbCar.Checked)
                     {
                         int doorCount = int.Parse(txtDoors.Text);
-                        Car car = new Car(licensePlate, 1, isCompetition, doorCount); // Set initial use count to 1
+                        Car car = new Car(licensePlate, 1, isCompetition, doorCount);
                         vehicleController.AddVehicle(car);
                         MessageBox.Show("Car added successfully!");
                     }
                     else if (rbMotorcycle.Checked)
                     {
                         bool hasHelmetCase = chkHelmetCase.Checked;
-                        Motorcycle motorcycle = new Motorcycle(licensePlate, 1, isCompetition, hasHelmetCase); // Set initial use count to 1
+                        Motorcycle motorcycle = new Motorcycle(licensePlate, 1, isCompetition, hasHelmetCase);
                         vehicleController.AddVehicle(motorcycle);
                         MessageBox.Show("Motorcycle added successfully!");
                     }
                     else if (rbBicycle.Checked)
                     {
                         bool isElectric = chkElectric.Checked;
-                        Bicycle bicycle = new Bicycle(1, isCompetition, isElectric); // Set initial use count to 1
+                        Bicycle bicycle = new Bicycle(1, isCompetition, isElectric);
                         vehicleController.AddVehicle(bicycle);
                         MessageBox.Show("Bicycle added successfully with license plate 'SPECIAL'!");
                     }
+                }
 
-                    LoadVehicles(); // Reload updated data
-                }
-                else
-                {
-                    MessageBox.Show($"The vehicle with license plate {licensePlate} already exists. It cannot be added again.");
-                }
+                LoadVehicles();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
-
-
-
 
 
         private void btnAddVehicle_Click(object sender, EventArgs e)
@@ -368,7 +357,6 @@ namespace proj_init_mamadoudDiallo
 
                 LoadVehicles(licensePlate, isCompetition, hasHelmetCase, isElectric, vehicleType);
 
-                // Automatically increment usage count if license plate is specified
                 if (!string.IsNullOrEmpty(licensePlate))
                 {
                     int currentUseCount = GetUseCountFromDatabase(licensePlate);

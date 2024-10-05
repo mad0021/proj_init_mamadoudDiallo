@@ -43,12 +43,15 @@
             this.btnDeleteVehicle = new System.Windows.Forms.Button();
             this.btnUpdateVehicle = new System.Windows.Forms.Button();
             this.btnAddVehicle = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVehicles)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1328, 0);
+            this.button1.Location = new System.Drawing.Point(1401, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 32);
             this.button1.TabIndex = 30;
@@ -58,7 +61,7 @@
             // 
             // txtDoors
             // 
-            this.txtDoors.Location = new System.Drawing.Point(21, 232);
+            this.txtDoors.Location = new System.Drawing.Point(109, 226);
             this.txtDoors.Name = "txtDoors";
             this.txtDoors.Size = new System.Drawing.Size(141, 26);
             this.txtDoors.TabIndex = 29;
@@ -67,7 +70,7 @@
             // 
             this.dgvVehicles.AllowUserToOrderColumns = true;
             this.dgvVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehicles.Location = new System.Drawing.Point(235, 78);
+            this.dgvVehicles.Location = new System.Drawing.Point(308, 85);
             this.dgvVehicles.Name = "dgvVehicles";
             this.dgvVehicles.RowHeadersWidth = 62;
             this.dgvVehicles.RowTemplate.Height = 28;
@@ -76,14 +79,14 @@
             // 
             // txtUsageCount
             // 
-            this.txtUsageCount.Location = new System.Drawing.Point(21, 172);
+            this.txtUsageCount.Location = new System.Drawing.Point(144, 166);
             this.txtUsageCount.Name = "txtUsageCount";
             this.txtUsageCount.Size = new System.Drawing.Size(141, 26);
             this.txtUsageCount.TabIndex = 27;
             // 
             // txtLicensePlate
             // 
-            this.txtLicensePlate.Location = new System.Drawing.Point(21, 115);
+            this.txtLicensePlate.Location = new System.Drawing.Point(159, 108);
             this.txtLicensePlate.Name = "txtLicensePlate";
             this.txtLicensePlate.Size = new System.Drawing.Size(141, 26);
             this.txtLicensePlate.TabIndex = 26;
@@ -91,7 +94,7 @@
             // chkElectric
             // 
             this.chkElectric.AutoSize = true;
-            this.chkElectric.Location = new System.Drawing.Point(703, 17);
+            this.chkElectric.Location = new System.Drawing.Point(776, 24);
             this.chkElectric.Name = "chkElectric";
             this.chkElectric.Size = new System.Drawing.Size(87, 24);
             this.chkElectric.TabIndex = 25;
@@ -101,7 +104,7 @@
             // chkHelmetCase
             // 
             this.chkHelmetCase.AutoSize = true;
-            this.chkHelmetCase.Location = new System.Drawing.Point(553, 17);
+            this.chkHelmetCase.Location = new System.Drawing.Point(626, 24);
             this.chkHelmetCase.Name = "chkHelmetCase";
             this.chkHelmetCase.Size = new System.Drawing.Size(127, 24);
             this.chkHelmetCase.TabIndex = 24;
@@ -111,7 +114,7 @@
             // rbMotorcycle
             // 
             this.rbMotorcycle.AutoSize = true;
-            this.rbMotorcycle.Location = new System.Drawing.Point(947, 17);
+            this.rbMotorcycle.Location = new System.Drawing.Point(1020, 24);
             this.rbMotorcycle.Name = "rbMotorcycle";
             this.rbMotorcycle.Size = new System.Drawing.Size(111, 24);
             this.rbMotorcycle.TabIndex = 23;
@@ -121,7 +124,7 @@
             // rbBicycle
             // 
             this.rbBicycle.AutoSize = true;
-            this.rbBicycle.Location = new System.Drawing.Point(1100, 17);
+            this.rbBicycle.Location = new System.Drawing.Point(1173, 24);
             this.rbBicycle.Name = "rbBicycle";
             this.rbBicycle.Size = new System.Drawing.Size(84, 24);
             this.rbBicycle.TabIndex = 22;
@@ -131,7 +134,7 @@
             // rbCar
             // 
             this.rbCar.AutoSize = true;
-            this.rbCar.Location = new System.Drawing.Point(830, 17);
+            this.rbCar.Location = new System.Drawing.Point(903, 24);
             this.rbCar.Name = "rbCar";
             this.rbCar.Size = new System.Drawing.Size(60, 24);
             this.rbCar.TabIndex = 21;
@@ -141,7 +144,7 @@
             // chkCompetition
             // 
             this.chkCompetition.AutoSize = true;
-            this.chkCompetition.Location = new System.Drawing.Point(407, 17);
+            this.chkCompetition.Location = new System.Drawing.Point(480, 24);
             this.chkCompetition.Name = "chkCompetition";
             this.chkCompetition.Size = new System.Drawing.Size(120, 24);
             this.chkCompetition.TabIndex = 20;
@@ -150,7 +153,7 @@
             // 
             // btnSearchVehicle
             // 
-            this.btnSearchVehicle.Location = new System.Drawing.Point(1188, 612);
+            this.btnSearchVehicle.Location = new System.Drawing.Point(1261, 619);
             this.btnSearchVehicle.Name = "btnSearchVehicle";
             this.btnSearchVehicle.Size = new System.Drawing.Size(198, 87);
             this.btnSearchVehicle.TabIndex = 19;
@@ -160,7 +163,7 @@
             // 
             // btnDeleteVehicle
             // 
-            this.btnDeleteVehicle.Location = new System.Drawing.Point(820, 612);
+            this.btnDeleteVehicle.Location = new System.Drawing.Point(893, 619);
             this.btnDeleteVehicle.Name = "btnDeleteVehicle";
             this.btnDeleteVehicle.Size = new System.Drawing.Size(198, 87);
             this.btnDeleteVehicle.TabIndex = 18;
@@ -170,7 +173,7 @@
             // 
             // btnUpdateVehicle
             // 
-            this.btnUpdateVehicle.Location = new System.Drawing.Point(494, 612);
+            this.btnUpdateVehicle.Location = new System.Drawing.Point(567, 619);
             this.btnUpdateVehicle.Name = "btnUpdateVehicle";
             this.btnUpdateVehicle.Size = new System.Drawing.Size(198, 87);
             this.btnUpdateVehicle.TabIndex = 17;
@@ -180,7 +183,7 @@
             // 
             // btnAddVehicle
             // 
-            this.btnAddVehicle.Location = new System.Drawing.Point(188, 612);
+            this.btnAddVehicle.Location = new System.Drawing.Point(261, 619);
             this.btnAddVehicle.Name = "btnAddVehicle";
             this.btnAddVehicle.Size = new System.Drawing.Size(198, 87);
             this.btnAddVehicle.TabIndex = 16;
@@ -188,11 +191,38 @@
             this.btnAddVehicle.UseVisualStyleBackColor = true;
             this.btnAddVehicle.Click += new System.EventHandler(this.btnAddVehicle_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(52, 108);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(101, 26);
+            this.textBox1.TabIndex = 31;
+            this.textBox1.Text = "License Plate";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(52, 166);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(86, 26);
+            this.textBox2.TabIndex = 32;
+            this.textBox2.Text = "Use Count";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(52, 226);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(51, 26);
+            this.textBox3.TabIndex = 33;
+            this.textBox3.Text = "Doors";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1398, 709);
+            this.ClientSize = new System.Drawing.Size(1480, 709);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtDoors);
             this.Controls.Add(this.dgvVehicles);
@@ -236,6 +266,9 @@
         private System.Windows.Forms.Button btnDeleteVehicle;
         private System.Windows.Forms.Button btnUpdateVehicle;
         private System.Windows.Forms.Button btnAddVehicle;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 
