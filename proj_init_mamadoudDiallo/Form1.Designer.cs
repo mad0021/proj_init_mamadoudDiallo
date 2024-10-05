@@ -67,11 +67,11 @@
             // 
             this.dgvVehicles.AllowUserToOrderColumns = true;
             this.dgvVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehicles.Location = new System.Drawing.Point(188, 78);
+            this.dgvVehicles.Location = new System.Drawing.Point(235, 78);
             this.dgvVehicles.Name = "dgvVehicles";
             this.dgvVehicles.RowHeadersWidth = 62;
             this.dgvVehicles.RowTemplate.Height = 28;
-            this.dgvVehicles.Size = new System.Drawing.Size(1198, 514);
+            this.dgvVehicles.Size = new System.Drawing.Size(1151, 514);
             this.dgvVehicles.TabIndex = 28;
             // 
             // txtUsageCount
@@ -103,9 +103,9 @@
             this.chkHelmetCase.AutoSize = true;
             this.chkHelmetCase.Location = new System.Drawing.Point(553, 17);
             this.chkHelmetCase.Name = "chkHelmetCase";
-            this.chkHelmetCase.Size = new System.Drawing.Size(123, 24);
+            this.chkHelmetCase.Size = new System.Drawing.Size(127, 24);
             this.chkHelmetCase.TabIndex = 24;
-            this.chkHelmetCase.Text = "HelmetCase";
+            this.chkHelmetCase.Text = "Helmet Case";
             this.chkHelmetCase.UseVisualStyleBackColor = true;
             // 
             // rbMotorcycle

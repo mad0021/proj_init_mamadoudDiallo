@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace proj_init_mamadoudDiallo
 {
@@ -16,8 +15,9 @@ namespace proj_init_mamadoudDiallo
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO vehicles (LicensePlate, UseCount, VehicleType, IsCompetition, Doors, IsElectric, HasHelmetStorage) " +
-                                   "VALUES (@licensePlate, @useCount, @type, @isCompetition, @doors, @isElectric, @hasHelmetStorage)";
+                    string query = @"INSERT INTO vehicles 
+                                    (LicensePlate, UseCount, VehicleType, IsCompetition, Doors, IsElectric, HasHelmetStorage) 
+                                    VALUES (@licensePlate, @useCount, @type, @isCompetition, @doors, @isElectric, @hasHelmetStorage)";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@licensePlate", vehicle.LicensePlate);
@@ -28,20 +28,20 @@ namespace proj_init_mamadoudDiallo
                     if (vehicle is Car car)
                     {
                         cmd.Parameters.AddWithValue("@doors", car.Doors);
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // Los coches no tienen este valor
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // Los coches no tienen porta cascos
                     }
                     else if (vehicle is Motorcycle motorcycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); 
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // Las motos no tienen puertas
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // Las motos no tienen este valor
                         cmd.Parameters.AddWithValue("@hasHelmetStorage", motorcycle.HasHelmetStorage ? 1 : 0);
                     }
                     else if (vehicle is Bicycle bicycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
-                        cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0);
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // Las bicicletas no tienen puertas
+                        cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0); // Bicicletas pueden ser eléctricas
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // Las bicicletas no tienen porta cascos
                     }
 
                     cmd.ExecuteNonQuery();
@@ -60,9 +60,10 @@ namespace proj_init_mamadoudDiallo
                 try
                 {
                     conn.Open();
-                    string query = "UPDATE vehicles SET UseCount = @useCount, VehicleType = @type, IsCompetition = @isCompetition, " +
-                                   "Doors = @doors, IsElectric = @isElectric, HasHelmetStorage = @hasHelmetStorage " +
-                                   "WHERE LicensePlate = @licensePlate";
+                    string query = @"UPDATE vehicles 
+                                     SET UseCount = @useCount, VehicleType = @type, IsCompetition = @isCompetition, 
+                                         Doors = @doors, IsElectric = @isElectric, HasHelmetStorage = @hasHelmetStorage 
+                                     WHERE LicensePlate = @licensePlate";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@licensePlate", vehicle.LicensePlate);
@@ -73,20 +74,20 @@ namespace proj_init_mamadoudDiallo
                     if (vehicle is Car car)
                     {
                         cmd.Parameters.AddWithValue("@doors", car.Doors);
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // Los coches no tienen este valor
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // Los coches no tienen porta cascos
                     }
                     else if (vehicle is Motorcycle motorcycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
-                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // Las motos no tienen puertas
+                        cmd.Parameters.AddWithValue("@isElectric", DBNull.Value); // Las motos no tienen este valor
                         cmd.Parameters.AddWithValue("@hasHelmetStorage", motorcycle.HasHelmetStorage ? 1 : 0);
                     }
                     else if (vehicle is Bicycle bicycle)
                     {
-                        cmd.Parameters.AddWithValue("@doors", DBNull.Value);
-                        cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0);
-                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@doors", DBNull.Value); // Las bicicletas no tienen puertas
+                        cmd.Parameters.AddWithValue("@isElectric", bicycle.IsElectric ? 1 : 0); // Bicicletas pueden ser eléctricas
+                        cmd.Parameters.AddWithValue("@hasHelmetStorage", DBNull.Value); // Las bicicletas no tienen porta cascos
                     }
 
                     cmd.ExecuteNonQuery();
