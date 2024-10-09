@@ -15,7 +15,7 @@ namespace proj_init_mamadoudDiallo
                 try
                 {
                     conn.Open();
-                    string query = @"INSERT INTO vehicles 
+                    string query = @"INSERT INTO vehicles
                                     (LicensePlate, UseCount, VehicleType, IsCompetition, Doors, IsElectric, HasHelmetStorage) 
                                     VALUES (@licensePlate, @useCount, @type, @isCompetition, @doors, @isElectric, @hasHelmetStorage)";
 
@@ -60,9 +60,9 @@ namespace proj_init_mamadoudDiallo
                 try
                 {
                     conn.Open();
-                    string query = @"UPDATE vehicles 
-                                     SET UseCount = @useCount, VehicleType = @type, IsCompetition = @isCompetition, 
-                                         Doors = @doors, IsElectric = @isElectric, HasHelmetStorage = @hasHelmetStorage 
+                    string query = @"UPDATE vehicles
+                                     SET UseCount = @useCount, VehicleType = @type, IsCompetition = @isCompetition,
+                                         Doors = @doors, IsElectric = @isElectric, HasHelmetStorage = @hasHelmetStorage
                                      WHERE LicensePlate = @licensePlate";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -185,6 +185,9 @@ namespace proj_init_mamadoudDiallo
                             case "Bicycle":
                                 vehicles.Add(new Bicycle(useCount, isCompetition, isElectric));
                                 break;
+                            default:
+                                break;
+
                         }
                     }
                 }
